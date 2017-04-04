@@ -25,7 +25,7 @@ class MailingsController < ApplicationController
     else
       render json: @mailing.errors, status: :unprocessable_entity
     end
-    # send_mail @mailing
+    send_mail @mailing
   end
 
   # PATCH/PUT /mailings/1

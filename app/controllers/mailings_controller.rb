@@ -22,10 +22,11 @@ class MailingsController < ApplicationController
 
     if @mailing.save
       render json: @mailing, status: :created, location: @mailing
-      MailOrderMailer.order_success(@mailing).deliver_now
+
     else
       render json: @mailing.errors, status: :unprocessable_entity
     end
+    MailOrderMailer.order_success(@mailing).deliver_now
     # send_mail @mailing
   end
 

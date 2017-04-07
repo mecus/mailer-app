@@ -7,6 +7,6 @@ class MailOrderMailer < ApplicationMailer
     # @cc = "sales@londoncityroast.com"
     @name = mailer.name
     @url = "http://www.londoncityroast.com/coffee"
-    mail(to: @email,  subject: "Order Confirmation")
+    mail(to: @email, subject: "Order Confirmation")
   end
 end

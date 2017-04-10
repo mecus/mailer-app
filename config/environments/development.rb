@@ -36,8 +36,8 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-   address: "smtpout.europe.secureserver.net",
-   port: 25,
+   address: "smtp.gmail.com",
+   port: 587,
    domain: "londoncityroast.com",
    authentication: "plain",
    enable_starttls_auto: true,

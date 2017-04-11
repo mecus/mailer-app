@@ -7,8 +7,8 @@ module SendMail
    @subject = "Order Confirmation"
    @html = "<div> <h3>Welcome,  #{@name}</h3>
              <p>
-               Your order have been successfully created,
-               your goods will be on its way to you as soon as the order is been approved.
+               Your order was successfully created,
+               your goods will be on its way to you as soon as we approved the order.
 
              </p>
              <p>
@@ -23,7 +23,7 @@ module SendMail
    @text = "Welcome, #{@name}
 
    Your order have been successfully created,
-   your goods will be on its way to you as soon as the order is been approved.
+   your goods will be on its way to you as soon as we approved the order.
 
    Take a look around our website, you might see something that will catch your attention.. just follow this link: #{@url}.
 
@@ -33,7 +33,7 @@ module SendMail
    Sales Team"
    @email = mailer.email
   #  First, instantiate the Mailgun Client with your API key
-   mg_client = Mailgun::Client.new "key-cce6e3f42d7ff17ae0c0bf12e579f595"
+   mg_client = Mailgun::Client.new ENV["MAILGUN_API"]
 
    # Define your message parameters
    message_params =  { from: 'City Roast <mailgun@mail.londoncityroast.com>',

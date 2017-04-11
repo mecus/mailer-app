@@ -8,7 +8,7 @@ class MailingsController < ApplicationController
 
     render json: @mailings
     # MailOrderMailer.order_success(Mailing.last).deliver_now
-    # send_mail Mailing.first
+    send_mail Mailing.last
   end
 
   # GET /mailings/1
@@ -22,10 +22,11 @@ class MailingsController < ApplicationController
 
     if @mailing.save
       render json: @mailing, status: :created, location: @mailing
-      send_mail @mailing
+
     else
       render json: @mailing.errors, status: :unprocessable_entity
     end
+    send_mail @mailing
     # MailOrderMailer.order_success(@mailing).deliver_now
 
   end

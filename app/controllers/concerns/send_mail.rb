@@ -33,7 +33,7 @@ module SendMail
    Sales Team"
    @email = mailer.email
   #  First, instantiate the Mailgun Client with your API key
-   mg_client = Mailgun::Client.new ENV["MAILGUN_API"]
+   mg_client = Mailgun::Client.new "key-cce6e3f42d7ff17ae0c0bf12e579f595"
 
    # Define your message parameters
    message_params =  { from: 'City Roast <mailgun@mail.londoncityroast.com>',

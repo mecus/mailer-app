@@ -8,7 +8,7 @@ class MailingsController < ApplicationController
 
     render json: @mailings
     # MailOrderMailer.order_success(Mailing.last).deliver_now
-    send_mail Mailing.first
+    # send_mail Mailing.first
   end
 
   # GET /mailings/1

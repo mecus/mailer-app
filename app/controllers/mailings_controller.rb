@@ -1,6 +1,7 @@
 class MailingsController < ApplicationController
-  include SendMail
+  before_action :authenticate_user, only: [:index, :show]
   before_action :set_mailing, only: [:show, :update, :destroy]
+  include SendMail
 
   # GET /mailings
   def index

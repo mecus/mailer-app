@@ -8,7 +8,7 @@ module SendMail
    @html = "<div> <h3>Welcome,  #{@name}</h3>
              <p>
                Your order was successfully created,
-               your goods will be on its way to you as soon as we approved the order.
+               your goods will be on its way to you as soon as we approved the order and process the payment.
 
              </p>
              <p>
@@ -23,7 +23,7 @@ module SendMail
    @text = "Welcome, #{@name}
 
    Your order have been successfully created,
-   your goods will be on its way to you as soon as we approved the order.
+   your goods will be on its way to you as soon as we approved the order and process the payment.
 
    Take a look around our website, you might see something that will catch your attention.. just follow this link: #{@url}.
 

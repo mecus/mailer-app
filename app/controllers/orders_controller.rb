@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   include JSONAPI::ActsAsResourceController
+  before_action :authenticate_user, only: [:index, :show]
   # before_action :set_order, only: [:show, :update, :destroy]
   #
   # # GET /orders

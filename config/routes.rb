@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  post 'user_token' => 'user_token#create'
+  resources :users
   # resources :coffees
-  # resources :orders
+  # resources :users
   resources :mailings
   jsonapi_resources :orders
   jsonapi_resources :coffees

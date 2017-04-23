@@ -1,5 +1,31 @@
 module SendMail
 
+  def admin_mail mailer
+    @name = mailer.name
+    @email = "tigransky@yahoo.com"
+    @emailcc = "londoncityroast@gmail.com"
+    @url = "http://www.londoncityroast.com/login"
+    @subject = "Order Notification"
+    @custmail = mailer.email
+    @html = "<h2>#{@name}</h2> <p> just placed an order on your website, login to admin panel to see the order details.. #{@url}
+      customer's email address: #{@custmail}
+    </p> "
+    @text = "#{@name} just placed an order on your website, login to admin panel to see the order details.. #{@url} customer's email address: #{@custmail}"
+
+    mg_client = Mailgun::Client.new "key-cce6e3f42d7ff17ae0c0bf12e579f595"
+
+    # Define your message parameters
+    message_params =  { from: 'London City Roast <mailgun@mail.londoncityroast.com>',
+                        to:   @email,
+                        bcc: @emailcc,
+                        subject: @subject,
+                        text: @text,
+                        html: @html
+                      }
+
+    # Send your message through the client
+    mg_client.send_message('mail.londoncityroast.com', message_params)
+  end
 
  def send_mail mailer
    @name = mailer.name
@@ -36,7 +62,7 @@ module SendMail
    mg_client = Mailgun::Client.new "key-cce6e3f42d7ff17ae0c0bf12e579f595"
 
    # Define your message parameters
-   message_params =  { from: 'City Roast <mailgun@mail.londoncityroast.com>',
+   message_params =  { from: 'London City Roast <mailgun@mail.londoncityroast.com>',
                        to:   @email,
                        subject: @subject,
                        text: @text,

@@ -1,5 +1,5 @@
 class MailingsController < ApplicationController
-  before_action :authenticate_user, only: [:index, :show]
+  before_action :authenticate_user, only: [:index, :show, :destroy]
   before_action :set_mailing, only: [:show, :update, :destroy]
   include SendMail
 
@@ -10,6 +10,7 @@ class MailingsController < ApplicationController
     render json: @mailings
     # MailOrderMailer.order_success(Mailing.last).deliver_now
     # send_mail Mailing.last
+    # admin_mail Mailing.last
   end
 
   # GET /mailings/1
@@ -28,6 +29,7 @@ class MailingsController < ApplicationController
       render json: @mailing.errors, status: :unprocessable_entity
     end
     send_mail @mailing
+    admin_mail @mailing
     # MailOrderMailer.order_success(@mailing).deliver_now
 
   end
